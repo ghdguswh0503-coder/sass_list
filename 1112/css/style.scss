@@ -1,0 +1,15 @@
+@charset "utf-8";
+
+$bg_color:#ff0;
+$bg_color1:#ccc;
+$margin_none:0px;
+
+h2{
+  background-color: $bg_color;
+}
+p{
+  background-color: $bg_color1;
+}
+dl dd{
+  margin: $margin_none;
+}

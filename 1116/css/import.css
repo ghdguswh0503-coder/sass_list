@@ -1,0 +1,26 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Noto+Sans+KR:wght@100..900&display=swap");
+body {
+  color: #333;
+  font-family: "맑은 고딕", arial, sans-serif;
+  font-size: 12px;
+}
+
+h1 {
+  font-size: 30px;
+  text-align: center;
+}
+
+#wrap {
+  width: 1280px;
+  background-color: #0f0;
+  border: 1px solid #0f0;
+  margin: 0px auto;
+}
+
+h2 {
+  font-family: "Noto Sans Kr";
+  font-size: 26px;
+  color: #00f;
+  background-color: #ccc;
+}/*# sourceMappingURL=import.css.map */

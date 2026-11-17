@@ -1,0 +1,100 @@
+@charset "utf-8";
+
+$boxCenter:0px auto;
+$baseWidth:1200px;
+
+@mixin test{
+  border: 1px solid #333;
+  background-color: purple;  
+}
+@mixin font{
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+ul, li{
+  list-style: none;
+}
+a{
+  text-decoration: none;
+}
+.promotion *{
+  padding: 0;
+  margin: 0;
+}
+
+.promotion{
+  width: $baseWidth;
+  margin: $boxCenter;
+}
+.promotion h2{
+  text-indent: 1%;
+}
+.promotion img{
+  width: 100%;
+}
+.promotion ul{
+  display: flex;
+}
+.promotion ul li{
+  width: 23%;
+  height: fit-content;
+  margin: 0 1%;
+  position: relative;
+}
+.promotion ul li .badge{
+  
+}
+.promotion ul li a span{
+  position: absolute;
+  z-index: 10;
+  background-color: #023586;
+  color:#fff;
+  font-size: 10px;
+  padding: 4px 8px;
+}
+
+.promotion ul li img{
+  display: block;
+  width: 100%;
+}
+.promotion ul li:hover::after{
+  content: '';
+  position: absolute;
+  z-index: 100;
+  top: 0;
+  left: 0;
+width: 100%;height: 100%;
+display: block;
+background: #080808;
+background: linear-gradient(183deg, rgba(8, 8, 8, 0.35) 0%, rgba(13, 13, 3, 1) 100%);
+}
+
+.c_title{
+  @include font;
+  font-weight: 700;
+  font-size: 18px;
+  position: absolute;
+  top: 300px;
+}
+#more{
+  position: absolute;
+  font-size: 12px;
+  top: 375px;
+  color: #333333a8;
+}
+#more:hover{
+  text-decoration: underline;
+}
+.top{
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 1%;
+}
+.top h2{
+  @include font;
+  color: #222222;
+}
+.top a{
+  font-size: 14px;
+  color: #2e2e2e;
+  border-bottom: 2px solid #2e2e2e;
+}

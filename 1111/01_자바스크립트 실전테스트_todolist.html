@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>01_자바스크립트 실전테스트_todolist</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <style>
+    *{padding: 0px; margin: 0px;}
+    ul, li{
+      list-style: none;
+    }
+    .box{
+      margin: 0 auto;
+      width: 400px;
+      background-color: rgb(230, 82, 180);
+    }
+    #input{
+      width: 100%;
+      height: 52px;
+      background-color: #fff;
+      display: flex;
+      justify-content: space-between;
+    }
+    input{
+      width: 344px;
+      height: 100%;
+    }
+    button[type=submit]{
+      width: 56px;
+      height: 56px;
+    }
+  </style>
+</head>
+<body>
+  <h2>01_자바스크립트 실전테스트_todolist</h2>
+  <dl>
+    <dt>오늘의 일정 구현하기</dt>
+    <dl>1. 입력폼과 '추가'버튼, '글삭제'버튼을 작성</dl>
+    <dl>2. 입력폼에 글입력하고 '추가'버튼 클릭시 아래 목록으로 내용출력</dl>
+    <dl>3. 출력내용 옆에 '삭제'버튼 추가</dl>
+    <dl>4. '삭제'버튼 클릭시 해당 글 삭제</dl>
+    <dl>5. 해당 목록 글 클릭시 '취소선'표시</dl>
+    <dl>6. '글삭제'버튼 클릭시 전체 글 삭제</dl>
+  </dl>
+
+
+  
+  <div class="box">
+    <header>
+      <h2>오늘의 할일 - todolist(입력, 출력, 삭제)</h2>
+      <!-- <h3>오늘의 할 일은?</h3> -->
+      <div id="input">
+        <input type="text" placeholder="오늘의 일정을 입력하세요." id="addValue" maxlength="40">
+        <button type="submit" id="btn">
+          <i class="fas fa-plus"></i>
+        </button>
+      </div>
+    </header>
+    <main>
+      <section>
+        <ul id="result">
+          <li class="text">
+            입력내용
+            <span class="del">삭제</span>
+          </li>
+        </ul>
+        <p>
+          <button id="del_btn">글모두 삭제</button>
+        </p>
+        <!-- <div class="newbox">
+          <div class="left">
+            <span>&nbsp;</span>
+            <span>입력 내용</span>
+          </div>
+          <div class="right">
+            <span>삭제</span>
+          </div>
+        </div> -->
+        
+      </section>
+    </main>
+    <footer>
+      <address>Copyright&copy;2026 자바스크립트 투두리스트 allrights reserved</address>
+    </footer>
+  </div>
+  <script>
+    // 변수선언
+    const btn = document.getElementById('btn');
+    const del_btn = document.getElementById('del_btn');
+    // 출력되는 곳 변수
+    let result = document.querySelector('ul')
+    const addValue = document.getElementById('addValue');
+    // 글 추가 버튼 클릭시 내용을 출력하는 함수
+    btn.addEventListener('click',function(){
+      print();
+    })
+    // 내용 출력을 위한 함수
+    function print(){
+      if(addValue.value==''){
+        alert('글내용 입력하세요');
+      }else{
+        let list = document.createElement('li');
+        list.classList.add('text')
+        list.innerHTML=addValue.value;
+        result.appendChild(list);
+        addValue.value='';
+        addValue.focus();
+
+
+        let del = document.createElement('button')
+        del.classList.add('del')
+        list.append(del);
+        del.innerText='삭제';
+
+
+        // let task = document.querySelectorAll('li')
+        let i = 0;
+        
+        list.addEventListener('click',function(){
+          
+          if(i==0){
+            list.style.textDecoration='line-through';
+            list.style.color='gray';
+            i=1;
+          }else{
+            list.style.textDecoration='none';
+            list.style.color='#333';
+            i=0;
+          }
+          del.addEventListener('click',function(e){
+            let li_remove = e.target.parentElement;
+            li_remove.remove();
+          })
+        }
+      )}
+    }
+    del_btn.addEventListener('click',function(){
+      clearAll();
+    })
+    function clearAll(){
+      if(confirm('버튼을 클릭시 글 내용이 모두 삭제됩니다. 정말로 실행하시겠습니까?')==true){
+        if(result.innerText===''){
+          alert('삭제할 글 목록이 없습니다.')
+        }else{
+          result.innerText='';
+        }
+      }else{
+        return false;
+      }
+      // alert('정말 지우시겠습니까????')
+    };
+
+    addValue.addEventListener('keydown',function(e){
+      if(e.key==='Enter'&&!e.shiftKey){
+        e.preventDefault();
+        print();
+      }
+    })
+  </script>
+</body>
+</html>

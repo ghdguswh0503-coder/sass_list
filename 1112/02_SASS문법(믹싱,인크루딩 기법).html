@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>02_SASS문법(믹싱,인클루드 기법)</title>
+  <link rel="stylesheet" href="./css/style1.css">
+</head>
+<body>
+  <h2>02_SASS문법(믹싱,인클루드 기법)</h2>
+  <p>sass의 믹싱기법과 include기법에 대해 학습하기</p>
+
+  <h3>1. $mixing무법</h3>
+  <p>웹사이트 전체에 재사용할 css코드를 정의하는 문</p>
+  <pre>
+    @mixin mixin명{
+      //반복해서 사용할 스타일 서식을 작성합니다
+    }
+  </pre>
+  
+  
+  <h3>2. @include문법</h3>
+  <p>@mixin을 선택자에 포함하는데 사용하는 지시문</p>
+  <pre>
+    css선택자{
+      @include mixin명
+    }
+  </pre>
+
+  <h3 class="title01">h3태그요소를 개 작성하여 동일한 서식과 다른 서식 적용하기</h3>
+  <h3 class="title02">mixin서식 적용하기</h3>
+  <p>위 h3태그에 배경: 노랑/ 글자: 빨강,파랑 적용하기</p>
+
+  <p class="p01">믹스인 함수(txt_over)를 사용하여 글자 생략기호(...)나오게 하기</p>
+  
+  <h3>03 @mixin을 중첨하여 새로운 @mixin만들기</h3>
+  <p>실습1. 문단태그안에 button요소를 2개 작성하여 각각 다른 버튼 서식 적용하기</p>
+  <button class="resetBtn">취소</button>
+  <button class="addBtn">장바구니 담기</button>
+
+  <p>실습 2. 모바일 토글버튼 구현하기</p>
+  <!-- css로 토글버튼 구현하기 -->
+  <input type="checkbox" id="toggle">
+  <label for="toggle" id="box">
+    <span class="bar bar1">&nbsp;</span>
+    <span class="bar bar2">&nbsp;</span>
+    <span class="bar bar3">&nbsp;</span>
+  </label>
+  
+  <div class="toggle2">
+    <span class="bar bar4">&nbsp;</span>
+    <span class="bar bar5">&nbsp;</span>
+    <span class="bar bar6">&nbsp;</span>
+  </div>
+
+  <script>
+    const toggle = document.querySelector('.toggle2');
+    const bars = document.querySelectorAll('.toggle2 span')
+    let i = 0;
+
+    toggle.addEventListener('click',function(){
+      if(i==0){
+        bars[0].classList.add('on0');
+        bars[1].classList.add('on1');
+        bars[2].classList.add('on2');
+        i++;
+      }else{
+        bars[0].classList.remove('on0');
+        bars[1].classList.remove('on1');
+        bars[2].classList.remove('on2');  
+        i=0;
+      }
+    })
+  </script>
+</body>
+</html>

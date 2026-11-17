@@ -1,0 +1,45 @@
+@charset "utf-8";
+
+$maxWidth:1180px;
+
+@function column($number:1, $all:12){
+  @return $maxWidth*($number/$all);
+}
+.wrap{
+  width: $maxWidth;
+  border: 2px solid #000;
+  margin: 0 auto;
+}
+
+.box01{width: column(); background-color: #f00;}
+.box02{width: column(6); background-color: #0f0;} 
+.box03{width: column(12); background-color: #00f;}
+
+$btnBgColor: #123332;
+$btnTxtColor: #fff;
+@mixin btn{
+  border: none;
+  cursor: pointer;
+  padding: 5px 10px;
+  color: $btnTxtColor;
+  background-color: $btnBgColor;
+  border-radius: 5px;
+}
+
+
+.btn{
+  @include btn
+}
+.btn2{
+  background: lighten($color: $btnBgColor, $amount: 10%);
+}
+// 함수 작성
+@function lighten($num){
+  @return 0.1*$num;
+}
+.btn3{opacity: lighten(8);}
+.btn4{opacity: lighten(6);}
+.btn5{opacity: lighten(4);}
+.btn6{opacity: lighten(3);}
+.btn7{opacity: lighten(2);}
+.btn8{opacity: lighten(1);}

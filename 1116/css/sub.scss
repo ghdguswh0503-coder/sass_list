@@ -1,0 +1,103 @@
+@charset "utf-8";
+
+// 변수 선언
+$maxWidth:1170px;
+$boxCenter:0 auto;
+$mainColor1:#009223;
+$mainColor2:#ffce32;
+$bgColor1:#333;
+$txtColor1:#7c7c7c;
+// 함수
+@function lighten($num){
+  @return 0.1*$num;
+}
+@mixin icon($bgcolor){
+  background-color:$bgcolor;
+  width: 26px;
+  height: 26px;
+  text-align: center;
+  border-radius: 50%;
+  color: #fff;
+  font-weight: bold;
+  margin: 0 15px;
+}
+
+*{margin: 0; padding: 0;}
+ul, li{list-style: none;}
+a{text-decoration: none;color: $bgColor1;}
+
+header{
+  border-top: 5px solid $mainColor1;
+  height: 200px;
+  text-align: center;
+  >h1{
+    padding: 10px 0px;
+  }
+}
+
+main{height: 800px;}
+footer{
+  width: 100%;
+  background-color: $bgColor1;
+  >.f_lnb{
+    margin: $boxCenter;
+    width: $maxWidth;
+    display: flex;
+    justify-content: left;
+    >li{
+      line-height: 50px;
+      >a{
+        padding-right: 10px;
+        color:rgba(255, 255, 255);
+        opacity: lighten(7);
+      }
+    }
+  }
+}
+
+
+section > h2{
+  text-align: center;
+  font-size: 40px;
+  padding: 40px;
+}
+
+.faq li:nth-child(2n-1){
+  width: 100%;
+  display: flex;
+  position: relative;
+  font-size: 16px;
+  height: 50px;
+  align-items: center;
+  cursor: pointer;
+  border: 2px solid #333;
+}
+.f_lnb li:nth-child(2)> a{
+  opacity: lighten(10);
+}
+.qIcon{
+  @include icon($mainColor1)
+  
+}
+.aIcon{
+  @include icon($mainColor2)
+}
+.xIcon{
+  @include icon(#fff);
+  color:$mainColor1;
+  font-size: 30px;
+  position: absolute;
+  right: 0px;
+  top: 0;
+}
+.faq li:nth-child(2n){
+  width: 100%;
+  background-color: orange;
+  display: flex;
+  height: 0;
+  overflow: hidden;
+  transition: 4s;
+}
+.faq li:nth-child(2){
+  height: 100%;
+}

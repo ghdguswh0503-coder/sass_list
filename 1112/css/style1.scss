@@ -1,0 +1,152 @@
+@charset "utf-8";
+
+// 변수 선언
+$bgColor: #ff0;
+$bgColorM: rgb(95, 0, 128);
+
+$tColor1:#f00;
+$tColor2:#00f;
+$tColorW:#fff;
+$lineColorG:#0f0;
+$border01: 2px solid #000;
+@mixin h3txt{
+  background-color: $bgColor;
+  color: $tColor1;
+}
+
+.title01{
+  @include h3txt;
+}
+
+.title02{
+  background-color: $bgColor;
+  color: $tColor2;
+}
+.title02:hover, .title01:hover{
+  border: $border01;
+}
+
+@mixin txt_over{
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.p01{
+  width: 350px;
+  border: 1px solid red;
+  background-color: $bgColor;
+  @include txt_over;
+}
+@mixin btnFont{
+  font-family: "Noto Sans";
+  font-weight: bold;
+  font-size: 20px;
+}
+@mixin btnArea{
+  border: 1px solid $lineColorG;
+  padding: 0px 10px;
+  width: 170px;height: 56px;
+}
+@mixin btn{
+  @include btnFont();
+  @include btnArea();
+}
+
+.resetBtn{
+  @include btn();
+}
+.addBtn{
+  @include btn();
+  background-color: $bgColorM;
+  color: $tColorW;
+}
+@mixin cssToggleP{
+  left: 50%;
+  transform: translateX(-50%);
+}
+@mixin cssToggleOnP{
+  bottom: 10px !important;
+}
+@mixin bar{
+  position: absolute;
+  width: 25px;
+  border-bottom: 3px solid #000;
+  transition: 0.5s;
+}
+@mixin toggleBtn{
+width: 30px;
+height: 30px;
+display: flex;
+position: relative;
+}
+#box{
+  @include toggleBtn()
+}
+label .bar{
+  @include bar()
+}
+.bar1{
+  @include cssToggleP();
+  bottom: 20px;
+  transform: translateX(-50%);
+}
+.bar2{
+  @include cssToggleP();
+  bottom: 10px;
+}
+.bar3{
+  @include cssToggleP();
+  bottom: 0;
+}
+input[type=checkbox]:checked + label .bar1{
+  left: -5px;
+  transform: rotate(-45deg);
+  @include cssToggleOnP()
+}
+input[type=checkbox]:checked + label .bar2{
+  left: 50%;
+  transition: 0s !important;
+  opacity: 0;
+  @include cssToggleOnP()
+}
+input[type=checkbox]:checked + label .bar3{
+  left: 12px;
+  transform: rotate(45deg);
+  @include cssToggleOnP()
+}
+.toggle2 {
+  border: $border01;
+  @include toggleBtn()
+}
+.toggle2 .bar{  
+  @include bar();
+  @include cssToggleP();
+}
+.toggle2 .bar4{
+  bottom: 20px;
+
+}
+.toggle2 .bar5{
+  bottom: 10px;
+}
+.toggle2 .bar6{
+  bottom: 0px;
+}
+.on0{
+  left: -5px !important;
+  transform: rotate(-45deg) !important;
+  @include cssToggleOnP();
+}
+.on1{
+  @include cssToggleOnP();
+  opacity: 0!important;
+}
+.on2{
+  left: 12px !important;
+  transform: rotate(45deg) !important;
+  @include cssToggleOnP() ;
+}
+
+.rotate01 {
+  transform: rotate(45deg);
+}

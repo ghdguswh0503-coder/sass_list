@@ -1,0 +1,18 @@
+@charset "UTF-8";
+body {
+  color: #333;
+  font-family: "맑은 고딕", arial, sans-serif;
+  font-size: 12px;
+}
+
+h1 {
+  font-size: 30px;
+  text-align: center;
+}
+
+#wrap {
+  width: 1280px;
+  background-color: #0f0;
+  border: 1px solid #0f0;
+  margin: 0px auto;
+}/*# sourceMappingURL=style1.css.map */

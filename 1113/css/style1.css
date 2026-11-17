@@ -1,0 +1,174 @@
+.sns {
+  display: flex;
+  width: 200px;
+  justify-content: space-around;
+  font-size: 30px;
+  color: #333;
+}
+
+.sns li {
+  list-style: none;
+}
+
+.sns li:hover i {
+  color: #f00;
+  font-size: 34px;
+  transition: 0.3s;
+  transform: translateY(-3%);
+}
+
+.box01 {
+  background-color: #0f0;
+  border: 3px solid #f00;
+}
+
+.box02 {
+  background-color: #ff0;
+  border: 3px solid #00f;
+}
+
+.box {
+  width: 100%;
+  text-align: center;
+}
+
+.btn {
+  box-shadow: 1px 1px 2px #333;
+  border: none;
+  width: 300px;
+  height: 30px;
+  text-align: center;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn1 {
+  background-color: purple;
+  color: white;
+}
+
+.btn2 {
+  background-color: green;
+  color: #fff;
+}
+
+.btn3 {
+  background-color: yellow;
+  color: #000;
+}
+
+.list01 {
+  border: 1px solid #ccc;
+}
+
+.list01 li:first-child {
+  border: 1px solid #ccc;
+}
+
+.list01 li:nth-child(2) {
+  border: 3px solid #333;
+}
+
+.list01 li:nth-child(3) {
+  border: 3px double #00f;
+}
+
+.list01 li:nth-child(4) {
+  border: 2px dotted #0f0;
+}
+
+.list01 li:nth-child(5) {
+  border: 4px dashed #ff0;
+}
+
+.calendar {
+  border: 1px solid #00f;
+  border-collapse: collapse;
+  width: 600px;
+}
+
+.calendar caption {
+  background-color: #ff0;
+  padding: 10px 0px;
+  font-weight: bold;
+}
+
+.calendar th, .calendar td {
+  border: 1px solid #00f;
+}
+
+.calendar tr:nth-child(2n+1) {
+  background-color: beige;
+}
+
+.calendar tr:nth-child(2n) {
+  background-color: rgb(247, 247, 182);
+}
+
+* {
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
+}
+
+.main {
+  border: 3px solid #333;
+  width: 1200px;
+  height: 600px;
+  padding: 10px;
+  display: flex;
+  box-sizing: border-box;
+  justify-content: space-between;
+}
+
+.mainC {
+  width: 48%;
+  background-color: #f00;
+}
+
+.main > .mainC > .textbox {
+  width: 100%;
+  text-align: center;
+  position: relative;
+}
+
+.main > .mainC > a {
+  width: 100%;
+  height: 560px;
+  padding: 20px 20px;
+}
+
+.main > .mainC > a > img {
+  width: 100%;
+  height: 60%;
+  display: block;
+}
+
+.cont {
+  width: 50%;
+  height: 100%;
+}
+
+.cont li {
+  padding: 20px 0;
+  display: flex;
+  border-bottom: 3px solid gray;
+  justify-content: space-between;
+}
+
+.cont li a {
+  width: 40%;
+}
+
+.cont li .textbox {
+  text-align: center;
+  position: relative;
+  width: 60%;
+}
+
+p {
+  position: absolute;
+  color: red;
+  right: 0;
+  bottom: 0;
+}/*# sourceMappingURL=style1.css.map */
